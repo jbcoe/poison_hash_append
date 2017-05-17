@@ -1,6 +1,5 @@
 #pragma once
 #include <type_traits>
-#include <variant>
 
 namespace std
 {
@@ -19,13 +18,6 @@ template <>
 struct is_contiguously_hashable<int> : std::true_type
 {
 };
-
-template <class H, class... Ts>
-inline void hash_append(H& h, const std::variant<Ts...>& v) noexcept
-{
-  hash_append(h, v.index());
-  std::visit([&h](const auto& x) { hash_append(h, x); }, v);
-}
 
 template <class HashAlgorithm, class T>
 inline std::enable_if_t<is_contiguously_hashable<T>::value>

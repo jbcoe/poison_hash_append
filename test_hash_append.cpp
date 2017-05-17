@@ -9,7 +9,7 @@ TEST_CASE("hash double", "[hash_append]")
   uhash<> h;
 
   // We just want to exercise the hash.
-  REQUIRE(h(3.14159) != h(2.782818));
+  REQUIRE(h(3.14159) != h(2.718281));
 }
 
 TEST_CASE("hash vector<int>", "[hash_append]")
@@ -42,6 +42,12 @@ inline void hash_append(H& h, const B& b) noexcept
 {
   hash_append(h, b.a_); // hash member as required.
 }
+
+// The poisoned hash_append function below is required to avoid infinite
+// recursion in the B specialization of hash_append.
+
+//template <class H, class T>
+//inline void hash_append(H& h, T) = delete;
 
 TEST_CASE("hash user defined type with implicit constructor from member type", "[hash_append]")
 {
