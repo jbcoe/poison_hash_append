@@ -67,8 +67,7 @@ This results in infinite recursion and a hard-to-diagnose problem at run-time.
 Proposed amendment
 ------------------
 
-Adding the overload below will prevent a conversion being selected as an
-overload unless `hash_append` has been explicitly specified for a value-type.
+Adding the overload below will prevent a conversion being selected unless `hash_append` has been explicitly specified for a value-type.
 
 ```
 template <class H, class T>
