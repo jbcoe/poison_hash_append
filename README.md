@@ -1,7 +1,7 @@
 Observed issue in the implementation of `hash_append`
 ====================================================
 
-*TL;DR* Implicit conversions can cause infinite recursion in `hash_append`. A
+**TL;DR** Implicit conversions can cause infinite recursion in `hash_append`. A
 suitably defined function template will poison the overload set and push
 run-time failures out to compile time.
 
