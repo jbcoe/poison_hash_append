@@ -85,7 +85,7 @@ Example code can be built with macOS, Linux and Windows (Visual Studio 2015) usi
 
 `python ./scripts/build.py -t`
 
-Note that this will crash as the tests are intedned to demonstrate the infinite recursion in action.
+Note that this will crash as the tests are intended to demonstrate the infinite recursion in action.
 
 
 References
